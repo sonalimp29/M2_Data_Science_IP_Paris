@@ -1,0 +1,86 @@
+## Introduction/Notations
+
+1. convolution operation = useful
+-resuces the number of parameters to train
+-faster training
+-convergence is easier:smaller parameter space
+
+
+## Convolution Layers
+
+2. Convolution neural network(CNN)
+-convolution(filters)
+-additive biases
+-down-sampling
+-non-linearities
+
+3.We can carry convolution in any order(associativity+commutativity)
+-no point in having 2 or more consecutive convolutions
+-(even for any linear map)
+
+4. Convolution filters can also act as a low-pass/smoothing filters
+
+5.Two main justificationof CNN:
+-sparse connectivity
+-weight sharing
+
+6. The flipping of weight corresponds to transpose of the matrix
+- a easier way for backpropagation
+
+7.CNN-biases:
+- each output layer is associated with one bias
+- there is no one bias per pixel
+- weight sharing == bias sharing
+
+## Down sampling and receptive feild
+
+8. Strided convolution :convolution followed by subsampling
+
+9. Max pooling : subsampling that takes MAXIMUM value over a certain region
+-Back propagation of max pooling only passes the gradient through the maximum
+
+10. Conclusion : cascade of convolution, non-linearities and subsamping produces SHIFT-INVARIENT classification/detection.
+
+## CNN details and variants
+
+11. Dilated Convolution: add a space D btw each point in the convolution
+
+## CNN in practice
+
+12. A simple CNN
+-Convolution -> biases -> non-linearities -> subsampling
+-this continues until a fixed subsampling is achieved 
+-after this , a classification section is used 
+-Fully connected layer -> non-linearity
+
+13. Central que: "How to choose number of layers?"
+-Thumb rule: receiptive feild of the deepest layer should encompass what we consider
+ to be a fundamental brick of the object we are analysing.
+-set number of layers and subsampling factors according to the problem.
+
+14. General architecture:
+input -> conv+relu -> pooling -> conv+relu -> pooling  ->  flatten -> fully connected -> softmax
+      |_______________________________________________|    |_____________________________________|
+                    FEATURE LEARNING                                    CLASSIFICATION 
+
+
+## Image Classification
+
+15. ResNET - uses SKIP CONNECTIONS to mitigate the VANISHING GRDIENT problem.
+- similar to LSTM, except propagates through network layers, rather than time.
+-residual architecture gives 87.54% accuracy on ImageNet
+
+16. Attention mechanism in RNN: self-attention
+-attention is the weighted version of V.
+
+17.Best accuracy on ImageNet(to-date)
+-CoAt-Net7:90.88% accuracy on Imagenet
+
+18. Optical Flow: I1(x,y) = I2(x + u(x,y),y +v(x,y))
+                  
+## Interpreting CNNs:
+#Visualising CNNs
+#Adversial examples
+
+19. 
+
